@@ -1,0 +1,37 @@
+name: Update game catalog and deploy Pages
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'games/**'
+      - 'scripts/generate-json.js'
+  workflow_dispatch:
+permissions:
+  contents: write
+  pages: write
+  id-token: write
+concurrency:
+  group: pages
+  cancel-in-progress: false
+jobs:
+  catalog:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+      - name: Generate games_catalog.json
+        run: node scripts/generate-json.js
+        env:
+          GAMES_BASE_URL: https://${{ github.repository_owner }}.github.io/${{ github.event.repository.name }}/games/
+      - name: Commit updated catalog
+        uses: stefanzweifel/git-auto-commit-action@v5
+        with:
+          commit_message: 'chore: update games catalog'
+          file_pattern: games_catalog.json
+      - uses: actions/configure-pages@v5
+      - uses: actions/upload-pages-artifact@v3
+        with:
+          path: .
+      - uses: actions/deploy-pages@v4

@@ -1,0 +1,8 @@
+const APP_CACHE='game-hub-shell-v1';
+const GAME_CACHE='game-hub-files-v1';
+const APP_SHELL=['./','./index.html','./style.css','./app.js','./manifest.webmanifest','./assets/icon.svg'];
+self.addEventListener('install',event=>{event.waitUntil(caches.open(APP_CACHE).then(c=>c.addAll(APP_SHELL)).then(()=>self.skipWaiting()))});
+self.addEventListener('activate',event=>{event.waitUntil(caches.keys().then(keys=>Promise.all(keys.filter(k=>![APP_CACHE,GAME_CACHE].includes(k)).map(k=>caches.delete(k)))).then(()=>self.clients.claim()))});
+self.addEventListener('fetch',event=>{const url=new URL(event.request.url);if(url.pathname.startsWith('/offline-games/')){event.respondWith(caches.match(event.request).then(r=>r||new Response('Game file not installed',{status:404})));return}if(event.request.mode==='navigate'){event.respondWith(fetch(event.request).catch(()=>caches.match('./index.html')));return}event.respondWith(caches.match(event.request).then(hit=>hit||fetch(event.request).then(res=>{if(event.request.method==='GET'&&url.origin===location.origin){const copy=res.clone();caches.open(APP_CACHE).then(c=>c.put(event.request,copy))}return res}).catch(()=>hit)))});
+self.addEventListener('message',event=>{if(event.data?.type==='CACHE_GAME_FILES'){event.waitUntil(cacheGameFiles(event.data.game,event.data.files))}});
+async function cacheGameFiles(game,files){const cache=await caches.open(GAME_CACHE);await Promise.all(files.map(async file=>{const response=await fetch(new URL(file,new URL(game.baseUrl,self.location.origin)));if(!response.ok)throw new Error(`Unable to cache ${file}`);await cache.put(`/offline-games/${game.id}/${file}`,response)}));}
