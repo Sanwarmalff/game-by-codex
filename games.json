@@ -1,0 +1,20 @@
+{
+  "games": [
+    {
+      "id": "neon-runner",
+      "name": "Neon Runner",
+      "description": "A fast offline arcade runner packaged as HTML, CSS, and JavaScript.",
+      "logoUrl": "https://raw.githubusercontent.com/YOUR_USERNAME/YOUR_REPO/main/assets/neon-runner.png",
+      "version": 1,
+      "downloadUrl": "https://raw.githubusercontent.com/YOUR_USERNAME/YOUR_REPO/main/games/neon-runner.zip"
+    },
+    {
+      "id": "pixel-puzzle",
+      "name": "Pixel Puzzle",
+      "description": "A lightweight puzzle game that runs completely inside the native WebView.",
+      "logoUrl": "https://raw.githubusercontent.com/YOUR_USERNAME/YOUR_REPO/main/assets/pixel-puzzle.png",
+      "version": 2,
+      "downloadUrl": "https://raw.githubusercontent.com/YOUR_USERNAME/YOUR_REPO/main/games/pixel-puzzle.zip"
+    }
+  ]
+}
