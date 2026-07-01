@@ -1,10 +1,13 @@
-[
-  {
-    "id": "sample_game",
-    "name": "Clicker Game",
-    "description": "A fun sample html game packaged automatically.",
-    "version": 1,
-    "logoUrl": "https://raw.githubusercontent.com/Sanwarmalff/game-by-codex/main/games/logo.png",
-    "downloadUrl": "https://raw.githubusercontent.com/Sanwarmalff/game-by-codex/main/games/game.zip"
-  }
-]
+{
+  "games": [
+    {
+      "id": "sample_game",
+      "name": "Clicker Game",
+      "description": "A fun sample html game packaged automatically.",
+      "version": 1,
+      "logoUrl": "https://raw.githubusercontent.com/Sanwarmalff/game-by-codex/main/games/toe/logo.png",
+      "downloadUrl": "https://raw.githubusercontent.com/Sanwarmalff/game-by-codex/main/games/toe/game.zip",
+      "sizeBytes": 102400
+    }
+  ]
+}
