@@ -1,20 +1,22 @@
+[
 {
-  "games": [
-    {
-      "id": "neon-runner",
-      "name": "Neon Runner",
-      "description": "A fast offline arcade runner packaged as HTML, CSS, and JavaScript.",
-      "logoUrl": "https://raw.githubusercontent.com/YOUR_USERNAME/YOUR_REPO/main/assets/neon-runner.png",
-      "version": 1,
-      "downloadUrl": "https://raw.githubusercontent.com/YOUR_USERNAME/YOUR_REPO/main/games/neon-runner.zip"
-    },
-    {
-      "id": "pixel-puzzle",
-      "name": "Pixel Puzzle",
-      "description": "A lightweight puzzle game that runs completely inside the native WebView.",
-      "logoUrl": "https://raw.githubusercontent.com/YOUR_USERNAME/YOUR_REPO/main/assets/pixel-puzzle.png",
-      "version": 2,
-      "downloadUrl": "https://raw.githubusercontent.com/YOUR_USERNAME/YOUR_REPO/main/games/pixel-puzzle.zip"
-    }
-  ]
-}
+    "id": "guess_number",
+    "title": "Guess The Number",
+    "description": "Can you guess the secret number between 1 and 100?",
+    "category": "Puzzle",
+    "zip_url": "https://raw.githubusercontent.com/Sanwarmalff/gamespro/main/games/guess_number/game.zip",
+    "icon_url": "https://raw.githubusercontent.com/Sanwarmalff/gamespro/main/games/guess_number/icon.png",
+    "thumbnail_url": "https://raw.githubusercontent.com/Sanwarmalff/gamespro/main/games/guess_number/thumbnail.png",
+    "version": "1.0.0"
+  }, 
+{
+  "id": "tik_tak_toe",
+  "title": "Tic Tac Toe",
+  "description": "Play the classic Tic Tac Toe game in Single Player or Two Player mode.",
+  "category": "Board",
+  "zip_url": "https://raw.githubusercontent.com/Sanwarmalff/gamespro/main/games/tik_tak_toe/game1.zip",
+  "icon_url": "https://raw.githubusercontent.com/Sanwarmalff/gamespro/main/games/tik_tak_toe/icon.png",
+  "thumbnail_url": "https://raw.githubusercontent.com/Sanwarmalff/gamespro/main/games/tik_tak_toe/thumbnail.png",
+  "version": "1.0.0"
+ }
+]
