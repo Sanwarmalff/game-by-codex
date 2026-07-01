@@ -14,6 +14,12 @@ import androidx.compose.ui.graphics.Brush
 import androidx.compose.ui.graphics.Color
 
 class MainActivity : ComponentActivity() {
+    
+    // 👑 UPDATE THIS: Apne GitHub ka raw games.json URL yahan daliye
+    companion object {
+        const val CATALOG_URL = "https://raw.githubusercontent.com/sanwarmalff/game-by-codex/main/games.json"
+    }
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContent { AppTheme { OfflineGameHubApp() } }
