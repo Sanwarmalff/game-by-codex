@@ -1,22 +1,10 @@
 [
-{
-    "id": "guess_number",
-    "title": "Guess The Number",
-    "description": "Can you guess the secret number between 1 and 100?",
-    "category": "Puzzle",
-    "zip_url": "https://raw.githubusercontent.com/Sanwarmalff/gamespro/main/games/guess_number/game.zip",
-    "icon_url": "https://raw.githubusercontent.com/Sanwarmalff/gamespro/main/games/guess_number/icon.png",
-    "thumbnail_url": "https://raw.githubusercontent.com/Sanwarmalff/gamespro/main/games/guess_number/thumbnail.png",
-    "version": "1.0.0"
-  }, 
-{
-  "id": "tik_tak_toe",
-  "title": "Tic Tac Toe",
-  "description": "Play the classic Tic Tac Toe game in Single Player or Two Player mode.",
-  "category": "Board",
-  "zip_url": "https://raw.githubusercontent.com/Sanwarmalff/gamespro/main/games/tik_tak_toe/game1.zip",
-  "icon_url": "https://raw.githubusercontent.com/Sanwarmalff/gamespro/main/games/tik_tak_toe/icon.png",
-  "thumbnail_url": "https://raw.githubusercontent.com/Sanwarmalff/gamespro/main/games/tik_tak_toe/thumbnail.png",
-  "version": "1.0.0"
- }
+  {
+    "id": "sample_game",
+    "name": "Clicker Game",
+    "description": "A fun sample html game packaged automatically.",
+    "version": 1,
+    "logoUrl": "https://raw.githubusercontent.com/Sanwarmalff/game-by-codex/main/games/logo.png",
+    "downloadUrl": "https://raw.githubusercontent.com/Sanwarmalff/game-by-codex/main/games/game.zip"
+  }
 ]
