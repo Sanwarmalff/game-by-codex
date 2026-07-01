@@ -16,7 +16,7 @@ import java.net.UnknownHostException
 import java.util.concurrent.TimeUnit
 
 private const val RAW_GITHUB_BASE_URL = "https://raw.githubusercontent.com/"
-const val CATALOG_URL = "https://raw.githubusercontent.com/sanwarmalff/game-by-codex/gh-pages/games.json"
+const val CATALOG_URL = "https://raw.githubusercontent.com/sanwarmalff/game-by-codex/main/games.json"
 
 class GameRepository(
     private val catalogUrl: String = CATALOG_URL,
