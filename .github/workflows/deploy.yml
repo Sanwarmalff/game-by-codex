@@ -1,0 +1,59 @@
+name: Build and Publish Game Catalog
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'games/**'
+      - 'generate_catalog.py'
+      - '.github/workflows/deploy.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: game-catalog-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout main
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+
+      - name: Generate zipped games and catalog
+        env:
+          GITHUB_REPOSITORY: ${{ github.repository }}
+          PUBLISH_BRANCH: gh-pages
+        run: python generate_catalog.py
+
+      - name: Publish to gh-pages
+        run: |
+          set -euo pipefail
+          workdir="$(mktemp -d)"
+          git worktree add --detach "$workdir"
+          cd "$workdir"
+          git checkout --orphan gh-pages
+          git rm -rf . >/dev/null 2>&1 || true
+          cp -R "$GITHUB_WORKSPACE/games" ./games
+          cp -R "$GITHUB_WORKSPACE/releases" ./releases
+          cp "$GITHUB_WORKSPACE/games.json" ./games.json
+          touch .nojekyll
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add games releases games.json .nojekyll
+          if git diff --cached --quiet; then
+            echo "No catalog changes to publish."
+          else
+            git commit -m "Deploy game catalog"
+            git push --force origin HEAD:gh-pages
+          fi
