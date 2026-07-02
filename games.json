@@ -1,0 +1,22 @@
+{
+  "games": [
+    {
+      "id": "punch",
+      "name": "Punch",
+      "description": "Offline HTML game",
+      "version": 1,
+      "logoUrl": "https://raw.githubusercontent.com/Sanwarmalff/game-by-codex/gh-pages/games/Punch/logo.png",
+      "downloadUrl": "https://raw.githubusercontent.com/Sanwarmalff/game-by-codex/gh-pages/releases/punch.zip",
+      "sizeBytes": 12184
+    },
+    {
+      "id": "tic-tac-toe",
+      "name": "Tic Tac Toe",
+      "description": "Offline HTML game",
+      "version": 1,
+      "logoUrl": "https://raw.githubusercontent.com/Sanwarmalff/game-by-codex/gh-pages/games/Tic%20tac%20toe/logo.png",
+      "downloadUrl": "https://raw.githubusercontent.com/Sanwarmalff/game-by-codex/gh-pages/releases/tic-tac-toe.zip",
+      "sizeBytes": 24381
+    }
+  ]
+}
