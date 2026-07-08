@@ -1,0 +1,42 @@
+[
+  {
+    "id": "space-dodger",
+    "name": "Space Dodger",
+    "description": "Dodge asteroids in a tiny offline arcade challenge.",
+    "version": "1.0.0",
+    "categories": [
+      "Action",
+      "Arcade"
+    ],
+    "entry": "index.html",
+    "logo": "./games/space-dodger/logo.svg",
+    "baseUrl": "./games/space-dodger/",
+    "files": [
+      "game.json",
+      "index.html",
+      "logo.svg"
+    ],
+    "size": 1006,
+    "updatedAt": "2026-06-30T17:12:09.987Z"
+  },
+  {
+    "id": "word-match",
+    "name": "Word Match",
+    "description": "A calm puzzle card for quick vocabulary matching.",
+    "version": "1.0.0",
+    "categories": [
+      "Puzzle",
+      "Kids"
+    ],
+    "entry": "index.html",
+    "logo": "./games/word-match/logo.svg",
+    "baseUrl": "./games/word-match/",
+    "files": [
+      "game.json",
+      "index.html",
+      "logo.svg"
+    ],
+    "size": 911,
+    "updatedAt": "2026-06-30T17:12:10.007Z"
+  }
+]

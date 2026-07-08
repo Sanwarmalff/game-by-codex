@@ -1,0 +1,101 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <meta name="theme-color" content="#111827" />
+  <meta name="description" content="Offline Game Hub: install GitHub-hosted games and play them without internet." />
+  <link rel="manifest" href="manifest.webmanifest" />
+  <link rel="stylesheet" href="style.css" />
+  <title>Offline Game Hub</title>
+</head>
+<body>
+  <div class="app-shell">
+    <header class="topbar glass">
+      <div>
+        <p class="eyebrow">Offline ready</p>
+        <h1>Game Hub</h1>
+      </div>
+      <button id="themeToggle" class="icon-btn" aria-label="Toggle theme">☾</button>
+    </header>
+
+    <main id="router" class="page-stack" aria-live="polite">
+      <section id="homePage" class="page active" data-page="home">
+        <div class="hero glass">
+          <div>
+            <p class="eyebrow">GitHub powered store</p>
+            <h2>Install once. Play anywhere.</h2>
+            <p>Browse games from your repository, cache complete builds locally, and launch them offline.</p>
+          </div>
+          <div class="status-pill" id="networkStatus">Checking…</div>
+        </div>
+
+        <div class="search-panel glass">
+          <label class="search-box">
+            <span>⌕</span>
+            <input id="searchInput" type="search" placeholder="Search games" autocomplete="off" />
+          </label>
+          <div id="categoryFilters" class="chips" role="list" aria-label="Game categories"></div>
+        </div>
+
+        <div id="featuredSkeleton" class="skeleton-grid" aria-hidden="true"></div>
+        <section id="gamesGrid" class="games-grid"></section>
+      </section>
+
+      <section id="libraryPage" class="page" data-page="library">
+        <div class="section-heading">
+          <div>
+            <p class="eyebrow">Ready offline</p>
+            <h2>Installed Games</h2>
+          </div>
+          <button id="checkUpdatesBtn" class="soft-btn">Check updates</button>
+        </div>
+        <section id="libraryGrid" class="games-grid"></section>
+      </section>
+
+      <section id="storagePage" class="page" data-page="storage">
+        <div class="section-heading">
+          <div>
+            <p class="eyebrow">Device storage</p>
+            <h2>Storage Manager</h2>
+          </div>
+          <div id="totalStorage" class="status-pill">0 MB</div>
+        </div>
+        <div id="storageList" class="storage-list glass"></div>
+      </section>
+    </main>
+
+    <nav class="bottom-nav glass" aria-label="Primary navigation">
+      <button class="nav-btn active" data-route="home">⌂<span>Store</span></button>
+      <button class="nav-btn" data-route="library">▣<span>Library</span></button>
+      <button class="nav-btn" data-route="storage">☷<span>Storage</span></button>
+    </nav>
+  </div>
+
+  <dialog id="installDialog" class="install-dialog glass">
+    <form method="dialog">
+      <h3 id="dialogTitle">Installing…</h3>
+      <p id="dialogText">Preparing game files.</p>
+      <progress id="installProgress" max="100" value="0"></progress>
+      <button id="dialogClose" class="soft-btn" value="cancel">Close</button>
+    </form>
+  </dialog>
+
+  <template id="gameCardTemplate">
+    <article class="game-card glass">
+      <img class="game-logo" alt="" loading="lazy" />
+      <div class="game-info">
+        <div class="card-title-row">
+          <h3></h3>
+          <span class="version"></span>
+        </div>
+        <p class="description"></p>
+        <div class="meta-row"></div>
+        <div class="actions"></div>
+      </div>
+    </article>
+  </template>
+
+  <script src="app.js" type="module"></script>
+</body>
+</html>
